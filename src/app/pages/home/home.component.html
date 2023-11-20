@@ -27,18 +27,40 @@
     </div>
     <div class="layout-content">
         <h2 class="text-700"><i class="pi pi-file"></i> {{projectName}}</h2>
-        <div class="layout-content-inner flex overflow-y-scroll mb-3">
+        <div class="layout-content-inner flex justify-content-between">
 
-            <p-card header="Todo" subheader="This item hasn't been started" [style]="{ width: '360px' }">
-                <ng-template pTemplate="content">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error
-                        repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam
-                        perferendis esse, cupiditate neque
-                        quas!
-                    </p>
-                </ng-template>
-            </p-card>
+            <div class="surface-card px-3" style="width: 425px;">
+                <div class="p-card-header">Todo</div>
+                <div class="p-card-subtitle">This item hasn't been started</div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error
+                    repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam
+                    perferendis esse, cupiditate neque
+                    quas!
+                </p>
+            </div>
+
+            <div class="surface-card px-3" style="width: 425px;">
+                <div class="p-card-header">In Progress</div>
+                <div class="p-card-subtitle">This is actively being worked on</div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error
+                    repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam
+                    perferendis esse, cupiditate neque
+                    quas!
+                </p>
+            </div>
+
+            <div class="surface-card px-3" style="width: 425px;">
+                <div class="p-card-header">Done</div>
+                <div class="p-card-subtitle">This has been completed</div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error
+                    repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam
+                    perferendis esse, cupiditate neque
+                    quas!
+                </p>
+            </div>
 
         </div>
     </div>
