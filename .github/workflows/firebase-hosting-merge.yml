@@ -16,7 +16,7 @@ jobs:
       - name: Install NodeJs(v18.18.2) & NPM(v10.2.3)
         uses: actions/setup-node@v3
         with:
-          node-version: 18.18.x2
+          node-version: 18.18.x
           cache: npm
 
       - name: Install all Npm packages of the project
