@@ -4,7 +4,17 @@
         <p-breadcrumb class="max-w-full" [model]="breadcrumbItems" ngClass="text-700"></p-breadcrumb>
         <div class="quick-actions">
             <button pRipple type="button" class="menu-icon hover:border-primary">
+                <i class="pi pi-plus text-700"></i>
+            </button>
+            <button pRipple type="button" class="menu-icon hover:border-primary">
                 <i class="pi pi-refresh text-700"></i>
+            </button>
+            <button pRipple type="button" class="menu-icon hover:border-primary">
+                <i class="pi pi-trash text-700"></i>
+            </button>
+            <button pRipple type="button" class="menu-icon-and-text hover:border-primary use-accent-ripple mr-2">
+                <i class="pi pi-bolt text-white"></i>
+                <span class="font-bold">Sync</span>
             </button>
             <a pRipple target="_blank" href="https://github.com/Suresh-Kumar-A/qwiktask"
                 class="menu-icon hover:border-primary">
@@ -13,11 +23,23 @@
             <button pRipple type="button" class="menu-icon hover:border-primary">
                 <i class="pi pi-comments text-700"></i>
             </button>
-            <button pRipple type="button" class="menu-icon-and-text hover:border-primary use-accent-ripple">
-                <i class="pi pi-bolt text-white"></i>
-                <span class="font-bold">Sync</span>
-            </button>
         </div>
     </div>
-    <div class="layout-content"></div>
+    <div class="layout-content">
+        <h2 class="text-700"><i class="pi pi-file"></i> {{projectName}}</h2>
+        <div class="layout-content-inner flex overflow-y-scroll mb-3">
+
+            <p-card header="Todo" subheader="This item hasn't been started" [style]="{ width: '360px' }">
+                <ng-template pTemplate="content">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error
+                        repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam
+                        perferendis esse, cupiditate neque
+                        quas!
+                    </p>
+                </ng-template>
+            </p-card>
+
+        </div>
+    </div>
 </div>

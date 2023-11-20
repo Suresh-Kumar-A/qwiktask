@@ -10,7 +10,7 @@
 }
 
 .layout-header {
-  height: 5rem !important;
+  height: var(--app-header-height);
 
   .logo {
     width: 150px;
@@ -75,8 +75,12 @@
 }
 
 .layout-content {
-    top: 5rem !important;
-    margin-top: 5rem !important;
-    padding-top: 0.5rem;
+  top: 5rem !important;
+  padding-top: 0.5rem;
+  height: calc(100% - var(--app-header-height));
+  overflow-y: hidden;
+
+  .layout-content-inner {
+    height: inherit;
   }
-  
+}

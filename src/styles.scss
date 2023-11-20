@@ -12,6 +12,7 @@
   --app-primary-light-color: #bb84e8;
   --app-accent-color: #dc2f02;
   --app-font-family: Helvetica !important;
+  --app-header-height: 5rem !important;
 }
 
 html,
@@ -20,6 +21,7 @@ body {
   width: 100%;
   margin: 0% !important;
   padding: 0% !important;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 html {

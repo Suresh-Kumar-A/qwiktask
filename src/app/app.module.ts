@@ -8,6 +8,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
+import { CardModule } from 'primeng/card';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
     AppRoutingModule,
     ButtonModule,
     RippleModule,
-    BreadcrumbModule
+    BreadcrumbModule,
+    CardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

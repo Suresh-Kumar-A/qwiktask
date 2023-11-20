@@ -13,7 +13,7 @@ export class HomeComponent {
   projectName = 'Library App'
 
   ngOnInit() {
-    this.breadcrumbItems = [{ icon: 'pi pi-discord' }, { label: this.displayName }, { icon: 'pi pi-folder' },
+    this.breadcrumbItems = [{ icon: 'pi pi-user' }, { label: this.displayName }, { icon: 'pi pi-folder' },
     { label: this.projectName }];
   }
 }
