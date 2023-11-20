@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-home',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  breadcrumbItems: MenuItem[] | undefined;
 
+  displayName = 'Suresh Kumar';
+  projectName = 'Library App'
+
+  ngOnInit() {
+    this.breadcrumbItems = [{ icon: 'pi pi-discord' }, { label: this.displayName }, { icon: 'pi pi-folder' },
+    { label: this.projectName }];
+  }
 }

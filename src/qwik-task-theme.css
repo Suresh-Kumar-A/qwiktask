@@ -5160,7 +5160,7 @@ p-treeselect.p-treeselect-clearable .p-treeselect-clear-icon {
   background: #fff;
   border: 1px solid #e5e5e5;
   border-radius: 4px;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 .p-breadcrumb ul li .p-menuitem-link {
   transition: none;
