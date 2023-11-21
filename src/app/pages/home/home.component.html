@@ -29,38 +29,11 @@
         <h2 class="text-700"><i class="pi pi-file"></i> {{projectName}}</h2>
         <div class="layout-content-inner flex justify-content-between">
 
-            <div class="surface-card px-3" style="width: 425px;">
-                <div class="p-card-header">Todo</div>
-                <div class="p-card-subtitle">This item hasn't been started</div>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error
-                    repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam
-                    perferendis esse, cupiditate neque
-                    quas!
-                </p>
-            </div>
+            <app-taskgroup [groupInfo]="todoTaskGroupInfo" [taskItems]="taskItems"></app-taskgroup>
 
-            <div class="surface-card px-3" style="width: 425px;">
-                <div class="p-card-header">In Progress</div>
-                <div class="p-card-subtitle">This is actively being worked on</div>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error
-                    repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam
-                    perferendis esse, cupiditate neque
-                    quas!
-                </p>
-            </div>
+            <app-taskgroup [groupInfo]="inprogressTaskGroupInfo" [taskItems]="taskItems"></app-taskgroup>
 
-            <div class="surface-card px-3" style="width: 425px;">
-                <div class="p-card-header">Done</div>
-                <div class="p-card-subtitle">This has been completed</div>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error
-                    repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam
-                    perferendis esse, cupiditate neque
-                    quas!
-                </p>
-            </div>
+            <app-taskgroup [groupInfo]="doneTaskGroupInfo" [taskItems]="taskItems"></app-taskgroup> 
 
         </div>
     </div>
