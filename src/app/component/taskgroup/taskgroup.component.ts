@@ -15,8 +15,11 @@ export class TaskgroupComponent implements OnInit {
 
   menuActions: MenuItem[] | undefined;
 
+  contextMenu: MenuItem[] | undefined;
+
   @Input()
   taskItems: TaskItem[] | undefined;
+test: string|HTMLElement|undefined;
 
   ngOnInit(): void {
     this.menuActions = [
@@ -29,5 +32,20 @@ export class TaskgroupComponent implements OnInit {
         icon: PrimeIcons.TRASH
       }
     ];
+    this.contextMenu = [
+      { label: 'Move to start', icon: 'pi pi-fw pi-trash' },
+      { label: 'Move to In-Progress', icon: 'pi pi-fw pi-search' },
+      { label: 'Mark as Done', icon: 'pi pi-fw pi-trash' }
+  ];
+  }
+
+  dragStart(arg0: any) {
+    console.log("---> Drag Start", arg0)
+  }
+  dragEnd() {
+    console.log("---> Drag End")
+  }
+  drop() {
+    console.log("---> Drop")
   }
 }

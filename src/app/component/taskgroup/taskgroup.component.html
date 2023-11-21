@@ -17,13 +17,13 @@
         </div>
         <div class="text-600 mt-1">{{groupInfo?.description}}</div>
     </div>
-    <div class="group-content" *ngFor="let taskItem of taskItems;">
-        <p-card>
-            <ng-template pTemplate="content">
-                <div class="p-card-title">{{taskItem.title}}</div>
+    <div class="group-content">
+        <div #test *ngFor="let taskItem of taskItems;" class="p-card p-component mb-2 hover:border-primary">
+            <div class="p-card-body">
+                <div class="p-card-title text-800">{{taskItem.title}}</div>
                 <div class="p-card-subtitle">{{taskItem.description}}</div>
-            </ng-template>
-        </p-card>
-
+            </div>
+        </div>
+        <p-contextMenu [global]="true" [model]="contextMenu"></p-contextMenu>
     </div>
 </div>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { TaskGroupInfo } from 'src/app/model/task-group-info.model';
 import { TaskItem } from 'src/app/model/task-item.model';
+import { MockService } from 'src/app/svc/mock.service';
 
 @Component({
   selector: 'app-home',
@@ -17,45 +18,29 @@ export class HomeComponent {
     title: 'Todo',
     description: "This item hasn't been started",
     category: 'todo',
-    count: '3',
+    count: this.mockSvc.getTodoTaks().length.toString(),
     indicationColorCode: '#dc2f02;'
   };
   inprogressTaskGroupInfo: TaskGroupInfo = {
     title: 'In Progress',
     description: 'This is actively being worked on',
     category: 'in-progress',
-    count: '2',
+    count: this.mockSvc.getInProgressTaks().length.toString(),
     indicationColorCode: '#347D39;'
   };
   doneTaskGroupInfo: TaskGroupInfo = {
     title: 'Done',
     description: 'This has been completed',
     category: 'done',
-    count: '5',
+    count: this.mockSvc.getDoneTaks().length.toString(),
     indicationColorCode: '#bb84e8;'
   };
 
-  taskItems: TaskItem[] | undefined;
+  constructor(public mockSvc: MockService) { }
 
   ngOnInit() {
     this.breadcrumbItems = [{ icon: 'pi pi-user' }, { label: this.displayName }, { icon: 'pi pi-folder' },
     { label: this.projectName }];
-    this.taskItems = [
-      {
-        title: 'Add SSO Login',
-        description: 'New SSO based login feature for quick access & smooth login process for user',
-        category: 'todo'
-      },
-      {
-        title: 'Export Json',
-        description: 'Add new feature to export the content as json file',
-        category: 'todo'
-      },
-      {
-        title: 'Add Firebase Auth',
-        description: 'Enable firebase authentication for this app',
-        category: 'todo'
-      }
-    ];
   }
+
 }

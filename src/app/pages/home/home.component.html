@@ -29,11 +29,11 @@
         <h2 class="text-700"><i class="pi pi-file"></i> {{projectName}}</h2>
         <div class="layout-content-inner flex justify-content-between">
 
-            <app-taskgroup [groupInfo]="todoTaskGroupInfo" [taskItems]="taskItems"></app-taskgroup>
+            <app-taskgroup [groupInfo]="todoTaskGroupInfo" [taskItems]="mockSvc.getTodoTaks()"></app-taskgroup>
 
-            <app-taskgroup [groupInfo]="inprogressTaskGroupInfo" [taskItems]="taskItems"></app-taskgroup>
+            <app-taskgroup [groupInfo]="inprogressTaskGroupInfo" [taskItems]="mockSvc.getInProgressTaks()"></app-taskgroup>
 
-            <app-taskgroup [groupInfo]="doneTaskGroupInfo" [taskItems]="taskItems"></app-taskgroup> 
+            <app-taskgroup [groupInfo]="doneTaskGroupInfo" [taskItems]="mockSvc.getDoneTaks()"></app-taskgroup> 
 
         </div>
     </div>
