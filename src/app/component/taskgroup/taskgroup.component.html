@@ -1,5 +1,5 @@
 <div class="task-group surface-card px-3">
-    <div class="group-header">
+    <div class="group-header" pDroppable (onDrop)="drop()">
         <div class="flex align-items-center justify-content-between">
             <div class="group-info">
                 <div *ngIf="groupInfo?.category == 'todo'" class="indication-box" style="border-color:#dc2f02;"></div>
@@ -17,13 +17,18 @@
         </div>
         <div class="text-600 mt-1">{{groupInfo?.description}}</div>
     </div>
-    <div class="group-content">
-        <div #test *ngFor="let taskItem of taskItems;" class="p-card p-component mb-2 hover:border-primary">
+    <div class="group-content" pDraggable>
+        <div *ngFor="let taskItem of taskItems;" class="p-card p-component mb-2 hover:border-primary"
+        >
             <div class="p-card-body">
                 <div class="p-card-title text-800">{{taskItem.title}}</div>
                 <div class="p-card-subtitle">{{taskItem.description}}</div>
             </div>
         </div>
         <p-contextMenu [global]="true" [model]="contextMenu"></p-contextMenu>
+    </div>
+    <div class="p-2 border-1 surface-border border-round w-15rem" pDroppable (onDrop)="drop()">
+        <p class="text-center surface-border border-bottom-1">Drop Zone</p>
+        
     </div>
 </div>
