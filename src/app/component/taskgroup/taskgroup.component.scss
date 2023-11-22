@@ -52,3 +52,34 @@
   background-color: var(--app-primary-color);
   outline: 0.5px solid slategrey;
 }
+
+.menu-icon {
+  width: 2rem !important;
+  height: 2rem !important;
+  border-radius: 6px;
+  border: 1px solid var(--surface-border);
+  background-color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  text-decoration: none;
+  /* To make button clickable */
+  cursor: pointer;
+
+  i {
+    color: var(--surface-700);
+    transition: all 0.2s;
+  }
+}
+
+button.use-accent-ripple {
+  background: var(--app-primary-color) !important;
+}
+
+/* To use Custom Ripple effect color*/
+button:not(.use-accent-ripple) {
+  .p-ink {
+    background: rgba(#261140, 0.3) !important;
+  }
+}
