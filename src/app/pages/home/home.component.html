@@ -12,6 +12,9 @@
             <button pRipple type="button" class="menu-icon hover:border-primary">
                 <i class="pi pi-trash text-700"></i>
             </button>
+            <button pRipple type="button" class="menu-icon hover:border-primary">
+                <i class="pi pi-share-alt text-700"></i>
+            </button>
             <button pRipple type="button" class="menu-icon-and-text hover:border-primary use-accent-ripple mr-2">
                 <i class="pi pi-bolt text-white"></i>
                 <span class="font-bold">Sync</span>
@@ -26,7 +29,7 @@
         </div>
     </div>
     <div class="layout-content">
-        <h2 class="text-700"><i class="pi pi-file"></i> {{projectName}}</h2>
+        <!-- <h2 class="text-700"><i class="pi pi-file"></i> {{projectName}}</h2> -->
         <div class="layout-content-inner flex justify-content-between">
 
             <app-taskgroup [groupInfo]="todoTaskGroupInfo" [taskItems]="mockSvc.getTodoTaks()"></app-taskgroup>
