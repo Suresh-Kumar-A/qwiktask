@@ -15,6 +15,7 @@ import { AvatarModule } from 'primeng/avatar'
 
 import { HomeComponent } from './pages/home/home.component';
 import { AppComponent } from './app.component';
+import { MockService } from './svc/mock.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { AppComponent } from './app.component';
     ContextMenuModule,
     AvatarModule
   ],
-  providers: [],
+  providers: [MockService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

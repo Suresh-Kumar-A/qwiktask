@@ -1,6 +1,6 @@
 <div class="layout-header px-5 py-3 flex justify-content-between border-bottom-1 border-black-alpha-20">
     <img class="w-10rem" src="assets/images/qwik-task-logo-transparent.svg" alt="Qwik Task Logo">
-    <div class="align-items-center flex font-bold text-2xl">
+    <div class="align-items-center flex font-bold text-2xl text-800">
         <i class="pi pi-chart-bar mr-2"></i>
         {{taskBoardName}}
     </div>
@@ -32,6 +32,24 @@
         </div>
     </div>
 </div>
-<div class="layout-content px-5">
+<div class="layout-content px-5 py-3 flex gap-3">
 
+    <div *ngFor="let item of Category | keyvalue: customOrder"
+        class="surface-card w-30rem p-2 grid m-0 align-content-between border-1 border-400 border-round">
+        <div class="flex gap-1 align-items-center px-1 w-full" name="task-group-info">
+            <div class="indication-box" [ngClass]="item.key | lowercase"></div>
+            <div class="font-semibold text-2xl text-700 mr-1">{{item.value}}</div>
+            <p-badge [value]="getTasksCount(item.key)" severity="danger"></p-badge>
+        </div>
+        <div class="mt-2 p-1 grid gap-1 overflow-y-auto task-group-content" style="height: 80% !important;" pDroppable
+            (drop)="drop(item.key)">
+            <div *ngFor="let task of getTasks(item.key)" draggable="true" pDraggable (onDragStart)="dragStart(task)"
+                class="surface-card p-2 border-1 border-400 border-round grid m-1 h-fit" (onDragEnd)="dragEnd()">
+                <span>{{task.title}}</span>
+                <span>{{task.description}}</span>
+            </div>
+        </div>
+        <button pButton pRipple class="p-button-raise w-full h-3rem" icon="pi pi-plus" type="button"
+            label="Add New Task"></button>
+    </div>
 </div>
