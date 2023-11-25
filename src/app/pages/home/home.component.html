@@ -1,0 +1,37 @@
+<div class="layout-header px-5 py-3 flex justify-content-between border-bottom-1 border-black-alpha-20">
+    <img class="w-10rem" src="assets/images/qwik-task-logo-transparent.svg" alt="Qwik Task Logo">
+    <div class="align-items-center flex font-bold text-2xl">
+        <i class="pi pi-chart-bar mr-2"></i>
+        {{taskBoardName}}
+    </div>
+    <div class="flex gap-2 align-items-center">
+        <div class="flex gap-2 align-items-center">
+            <a pRipple target="_blank" href="https://github.com/Suresh-Kumar-A/qwiktask"
+                class="menu-icon hover:border-primary">
+                <i class="pi pi-github text-black-alpha-90"></i>
+            </a>
+            <button pRipple type="button" class="menu-icon hover:border-primary" (click)="addNewTaskBoard()">
+                <i class="pi pi-plus text-700"></i>
+            </button>
+            <button pRipple type="button" class="menu-icon hover:border-primary" (click)="refreshTaskBoard()">
+                <i class="pi pi-refresh text-700"></i>
+            </button>
+            <button pRipple type="button"
+                class="menu-icon-and-text hover:border-primary use-accent-ripple button-primary">
+                <i class="pi pi-bolt text-white"></i>
+                <span class="font-bold">Sync</span>
+            </button>
+        </div>
+        <p-menu #menu [model]="profileItems" [popup]="true"></p-menu>
+        <div *ngIf="isUserSignedIn" (click)="menu.toggle($event)"
+            class="px-1 flex gap-1 align-items-center border-1 border-400 border-round cursor-pointer">
+            <p-avatar image="https://hrcdn.net/s3_pub/hr-avatars/8ad5389f-713c-4143-bbaf-a928a59515dd/150x150.png"
+                shape="circle"></p-avatar>
+            <span class="font-semibold">{{userName}}</span>
+            <i class="pi pi-angle-down"></i>
+        </div>
+    </div>
+</div>
+<div class="layout-content px-5">
+
+</div>

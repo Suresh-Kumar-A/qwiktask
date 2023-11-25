@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
@@ -13,10 +11,15 @@ import { BadgeModule } from 'primeng/badge';
 import { MenuModule } from 'primeng/menu';
 import { DragDropModule } from 'primeng/dragdrop';
 import { ContextMenuModule } from 'primeng/contextmenu';
+import { AvatarModule } from 'primeng/avatar'
+
+import { HomeComponent } from './pages/home/home.component';
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,8 @@ import { ContextMenuModule } from 'primeng/contextmenu';
     BadgeModule,
     MenuModule,
     DragDropModule,
-    ContextMenuModule
+    ContextMenuModule,
+    AvatarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

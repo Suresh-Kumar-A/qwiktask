@@ -1,0 +1,66 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.layout-header {
+  height: var(--app-header-height) !important;
+  position: relative;
+}
+
+.layout-content {
+  height: calc(100% - var(--app-header-height));
+  position: relative;
+  background-color: var(--app-background-color);
+}
+
+.menu-icon {
+  width: 2rem !important;
+  height: 2rem !important;
+  border-radius: 6px;
+  border: 1px solid var(--surface-border);
+  background-color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  text-decoration: none;
+  /* To make button clickable */
+  cursor: pointer;
+
+  i {
+    color: var(--surface-700);
+    transition: all 0.2s;
+  }
+}
+
+.menu-icon-and-text {
+  width: 5rem !important;
+  height: 2rem !important;
+  border-radius: 6px;
+  border: 1px solid var(--surface-border);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-evenly;
+  transition: all 0.2s;
+  text-decoration: none;
+  /* To make button clickable */
+  cursor: pointer;
+
+  i {
+    color: var(--surface-700);
+    transition: all 0.2s;
+  }
+}
+
+button.use-accent-ripple {
+  background: var(--app-primary-color) !important;
+}
+
+/* To use Custom Ripple effect color*/
+button:not(.use-accent-ripple) {
+  .p-ink {
+    background: rgba(#261140, 0.3) !important;
+  }
+}
