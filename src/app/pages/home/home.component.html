@@ -44,9 +44,9 @@
         <div class="mt-2 p-1 grid gap-1 overflow-y-auto task-group-content" style="height: 80% !important;" pDroppable
             (drop)="drop(item.key)">
             <div *ngFor="let task of getTasks(item.key)" draggable="true" pDraggable (onDragStart)="dragStart(task)"
-                class="surface-card p-2 border-1 border-400 border-round grid m-1 h-fit" (onDragEnd)="dragEnd()">
-                <span>{{task.title}}</span>
-                <span>{{task.description}}</span>
+                class="surface-card p-2 border-1 border-400 border-round grid gap-1 m-1 h-fit" (onDragEnd)="dragEnd()">
+                <span class="font-bold">{{task.title}}</span>
+                <span class="text-700 font-medium text-sm">{{task.description}}</span>
             </div>
         </div>
         <button pButton pRipple class="p-button-raise w-full h-3rem" icon="pi pi-plus" type="button"
