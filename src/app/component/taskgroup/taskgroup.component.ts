@@ -47,5 +47,6 @@ test: string|HTMLElement|undefined;
   }
   drop() {
     console.log("---> Drop")
+    this
   }
 }

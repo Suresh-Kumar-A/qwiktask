@@ -1,5 +1,5 @@
-<div class="task-group surface-card px-3">
-    <div class="group-header" pDroppable (onDrop)="drop()">
+<div class="task-group surface-card px-3 border-1">
+    <div class="group-header" (onDrop)="drop()">
         <div class="flex align-items-center justify-content-between">
             <div class="group-info">
                 <div *ngIf="groupInfo?.category == 'todo'" class="indication-box" style="border-color:#dc2f02;"></div>
@@ -18,22 +18,9 @@
         <div class="text-600 mt-1">{{groupInfo?.description}}</div>
     </div>
     <div class="group-content">
-        <div *ngFor="let taskItem of taskItems;" class="p-card p-component mb-2 hover:border-primary">
+        <div draggable="true" *ngFor="let taskItem of taskItems;" class="p-card p-component mb-2 hover:border-primary">
             <div class="p-card-body">
-                <div class="flex justify-content-between align-items-center">
-                    <div class="p-card-title text-800">{{taskItem.title}}</div>
-                    <div class="quick-actions">
-                        <button pRipple type="button" class="menu-icon hover:border-primary mr-1">
-                            <i class="pi pi-stop text-700"></i>
-                        </button>
-                        <button pRipple type="button" class="menu-icon hover:border-primary mr-1">
-                            <i class="pi pi-play text-700"></i>
-                        </button>
-                        <button pRipple type="button" class="menu-icon hover:border-primary mr-1">
-                            <i class="pi pi-check text-700"></i>
-                        </button>
-                    </div>
-                </div>
+                <div class="p-card-title text-800">{{taskItem.title}}</div>
                 <div class="p-card-subtitle">{{taskItem.description}}</div>
             </div>
         </div>
