@@ -3,6 +3,8 @@ import { MenuItem, PrimeIcons } from 'primeng/api';
 import { Category } from 'src/app/model/category';
 import { TaskItem } from 'src/app/model/task-item.model';
 import { MockService } from 'src/app/svc/mock.service';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { TaskItemComponent } from 'src/app/components/task-item/task-item.component';
 
 @Component({
   selector: 'app-home',
@@ -22,8 +24,9 @@ export class HomeComponent implements OnInit {
     return a;
   }
   draggedItem: TaskItem | undefined;
+  ref: DynamicDialogRef | undefined;
 
-  constructor(private mockSvc: MockService) { }
+  constructor(private mockSvc: MockService, public dialogService: DialogService) { }
 
   ngOnInit() {
     this.profileItems = [
@@ -115,5 +118,21 @@ export class HomeComponent implements OnInit {
       if (itemRef)
         itemRef.category = category;
     }
+  }
+
+  addNewTask(type: String) {
+    const category = this.parseCategory(type);
+    this.ref = this.dialogService.open(TaskItemComponent, {
+      header: 'Task Item',
+      width: '40%',
+      height: '60%',
+      contentStyle: { overflow: 'auto' },
+    });
+    this.ref.onClose.subscribe((taskItem: TaskItem) => {
+      if (taskItem) {
+        taskItem.category = category;
+        this.tasks.push(taskItem);
+      }
+    })
   }
 }

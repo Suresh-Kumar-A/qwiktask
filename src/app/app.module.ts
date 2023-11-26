@@ -12,15 +12,23 @@ import { MenuModule } from 'primeng/menu';
 import { DragDropModule } from 'primeng/dragdrop';
 import { ContextMenuModule } from 'primeng/contextmenu';
 import { AvatarModule } from 'primeng/avatar'
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { DropdownModule } from 'primeng/dropdown';
 
 import { HomeComponent } from './pages/home/home.component';
 import { AppComponent } from './app.component';
 import { MockService } from './svc/mock.service';
+import { TaskItemComponent } from './components/task-item/task-item.component';
+import { DialogService } from 'primeng/dynamicdialog';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    TaskItemComponent
   ],
   imports: [
     BrowserModule,
@@ -34,9 +42,14 @@ import { MockService } from './svc/mock.service';
     MenuModule,
     DragDropModule,
     ContextMenuModule,
-    AvatarModule
+    AvatarModule,
+    DynamicDialogModule,
+    InputTextModule,
+    InputTextareaModule,
+    DropdownModule,
+    ReactiveFormsModule
   ],
-  providers: [MockService],
+  providers: [MockService, DialogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
