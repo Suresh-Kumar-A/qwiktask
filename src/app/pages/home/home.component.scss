@@ -3,36 +3,15 @@
   height: 100%;
 }
 
-.layout-wrapper {
-  background-color: var(--app-background-color);
-  width: 100% !important;
-  height: 100% !important;
+.layout-header {
+  height: var(--app-header-height) !important;
+  position: relative;
 }
 
-.layout-header {
-  height: var(--app-header-height);
-
-  .logo {
-    width: auto;
-    height: 1.8rem;
-  }
-
-  .quick-actions {
-    .menu-icon {
-      margin-right: 0.5rem;
-    }
-
-    button.use-accent-ripple {
-      background: var(--app-primary-color) !important;
-    }
-
-    /* To use Custom Ripple effect color*/
-    button:not(.use-accent-ripple) {
-      .p-ink {
-        background: rgba(#261140, 0.3) !important;
-      }
-    }
-  }
+.layout-content {
+  height: calc(100% - var(--app-header-height));
+  position: relative;
+  background-color: var(--app-background-color);
 }
 
 .menu-icon {
@@ -75,13 +54,52 @@
   }
 }
 
-.layout-content {
-  top: 5rem !important;
-  padding-top: 0.5rem;
-  height: calc(100% - var(--app-header-height));
-  overflow-y: hidden;
+button.use-accent-ripple {
+  background: var(--app-primary-color) !important;
+}
 
-  .layout-content-inner {
-    height: inherit;
+/* To use Custom Ripple effect color*/
+button:not(.use-accent-ripple) {
+  .p-ink {
+    background: rgba(#261140, 0.3) !important;
   }
+}
+
+.indication-box {
+  border-width: 3px;
+  border-style: solid;
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  display: inline-block;
+
+  &.todo {
+    background-color: rgba(246, 197, 112, 0.15);
+    border-color: #f48c06;
+  }
+
+  &.in_progress {
+    background-color: rgba(70, 149, 74, 0.15);
+    border-color: #347d39;
+  }
+
+  &.done {
+    background-color: rgba(70, 149, 74, 0.15);
+    border-color: #bb84e8;
+  }
+}
+
+.task-group-content::-webkit-scrollbar {
+  width: 0.2rem;
+  height: 2rem;
+}
+
+.task-group-content::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 4px #ffffff;
+}
+
+.task-group-content::-webkit-scrollbar-thumb {
+  background-color: var(--app-primary-color);
+  outline: 0.5px solid slategrey;
 }

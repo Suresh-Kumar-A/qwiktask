@@ -5,14 +5,23 @@
 /* PrimeNG | PrimeFlex | CSS */
 @import "primeflex/primeflex.css";
 
+
 :root {
   --app-background-color: #eaf7ee;
-  --app-primary-color: #261140;
-  --app-primary-mid-light-color: #35185a;
+  --app-primary-dark-color: #261140;
+  --app-primary-color: #35185a;
   --app-primary-light-color: #bb84e8;
   --app-accent-color: #dc2f02;
   --app-font-family: Helvetica !important;
-  --app-header-height: 5rem !important;
+  --app-header-height: 4rem !important;
+
+  font-family: Inter, sans-serif;
+  font-feature-settings: "liga" 1, "calt" 1; /* fix for Chrome */
+}
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: InterVariable, sans-serif;
+  }
 }
 
 html,
@@ -21,7 +30,7 @@ body {
   width: 100%;
   margin: 0% !important;
   padding: 0% !important;
-  font-family: Arial, Helvetica, sans-serif;
+  overflow-y: hidden;
 }
 
 html {
