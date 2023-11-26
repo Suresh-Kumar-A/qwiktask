@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TaskgroupComponent } from './taskgroup.component';
+import { TaskItemComponent } from './task-item.component';
 
-describe('TaskgroupComponent', () => {
-  let component: TaskgroupComponent;
-  let fixture: ComponentFixture<TaskgroupComponent>;
+describe('TaskItemComponent', () => {
+  let component: TaskItemComponent;
+  let fixture: ComponentFixture<TaskItemComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TaskgroupComponent]
+      declarations: [TaskItemComponent]
     });
-    fixture = TestBed.createComponent(TaskgroupComponent);
+    fixture = TestBed.createComponent(TaskItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
