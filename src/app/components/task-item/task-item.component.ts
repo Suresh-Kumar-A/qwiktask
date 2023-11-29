@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup,ReactiveFormsModule } from '@angular/forms';
-import { DynamicDialogRef } from 'primeng/dynamicdialog';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Category } from 'src/app/model/category';
 import { TaskItem } from 'src/app/model/task-item.model';
 
@@ -11,23 +11,26 @@ import { TaskItem } from 'src/app/model/task-item.model';
 })
 export class TaskItemComponent implements OnInit {
   public Category = Object.keys(Category);
-  isOpAdd = true;
+  buttonTitle = 'Add';
   taskItemFormGroup = new FormGroup({
     title: new FormControl(''),
     description: new FormControl('')
   });
 
-  constructor(public ref: DynamicDialogRef) {
+  constructor(public ref: DynamicDialogRef, public config: DynamicDialogConfig) {
 
   }
   ngOnInit(): void {
     this.taskItemFormGroup.reset();
+    if (this.config.data) {
+      const { title, description } = this.config.data;
+      this.taskItemFormGroup.setValue({ title: title, description: description });
+      this.buttonTitle = 'Update'
+    }
   }
 
   save() {
     const { title, description } = this.taskItemFormGroup.value;
-    console.log(title, description);
-    
     if (title != undefined && description != undefined) {
       var taskItem: TaskItem = {
         title: title,

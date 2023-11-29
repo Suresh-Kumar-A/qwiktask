@@ -16,7 +16,6 @@ export class HomeComponent implements OnInit {
   isUserSignedIn = true;
   userName = 'suresh_kumar_a';
   profileItems: MenuItem[] | undefined;
-  taskBoardName = 'Library App';
   tasks: TaskItem[] = [];
   public Category = Category;
   // Custom Order to keey Category Eum the way we added it
@@ -25,6 +24,10 @@ export class HomeComponent implements OnInit {
   }
   draggedItem: TaskItem | undefined;
   ref: DynamicDialogRef | undefined;
+
+  title = 'New Project';
+  editTitle = true;
+  loadingTasks = false;
 
   constructor(private mockSvc: MockService, public dialogService: DialogService) { }
 
@@ -61,7 +64,11 @@ export class HomeComponent implements OnInit {
   }
 
   refreshTaskBoard() {
-    this.tasks = this.mockSvc.getAllTasks();
+    this.loadingTasks = true;
+    setTimeout(() => {
+      // this.tasks = this.mockSvc.getAllTasks();
+      this.loadingTasks = false;
+    }, 1800);
   }
 
   getTodoTasks() {
@@ -124,7 +131,7 @@ export class HomeComponent implements OnInit {
     const category = this.parseCategory(type);
     this.ref = this.dialogService.open(TaskItemComponent, {
       header: 'Task Item',
-      width: '40%',
+      width: '30%',
       height: '60%',
       contentStyle: { overflow: 'auto' },
     });
@@ -132,6 +139,32 @@ export class HomeComponent implements OnInit {
       if (taskItem) {
         taskItem.category = category;
         this.tasks.push(taskItem);
+      }
+    })
+  }
+
+  deleteTask(taskItem: TaskItem) {
+    const index = this.tasks.indexOf(taskItem);
+    if (index != -1) {
+      this.tasks.splice(index, 1);
+    }
+  }
+
+  editTask(oldItem: TaskItem) {
+    this.ref = this.dialogService.open(TaskItemComponent, {
+      header: 'Task Item',
+      width: '30%',
+      height: '60%',
+      contentStyle: { overflow: 'auto' },
+      data: oldItem
+    });
+    this.ref.onClose.subscribe((updatedItem: TaskItem) => {
+      if (updatedItem) {
+        const itemRef = this.tasks.find(item => item.title == oldItem.title);
+        if (itemRef) {
+          itemRef.title = updatedItem.title;
+          itemRef.description = updatedItem.description;
+        }
       }
     })
   }
