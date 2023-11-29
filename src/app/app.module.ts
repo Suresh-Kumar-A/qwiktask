@@ -22,7 +22,7 @@ import { AppComponent } from './app.component';
 import { MockService } from './svc/mock.service';
 import { TaskItemComponent } from './components/task-item/task-item.component';
 import { DialogService } from 'primeng/dynamicdialog';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     InputTextModule,
     InputTextareaModule,
     DropdownModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [MockService, DialogService],
   bootstrap: [AppComponent]

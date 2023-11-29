@@ -16,7 +16,6 @@ export class HomeComponent implements OnInit {
   isUserSignedIn = true;
   userName = 'suresh_kumar_a';
   profileItems: MenuItem[] | undefined;
-  taskBoardName = 'Library App';
   tasks: TaskItem[] = [];
   public Category = Category;
   // Custom Order to keey Category Eum the way we added it
@@ -25,6 +24,10 @@ export class HomeComponent implements OnInit {
   }
   draggedItem: TaskItem | undefined;
   ref: DynamicDialogRef | undefined;
+
+  title = 'New Project';
+  editTitle = false;
+  loadingTasks = false;
 
   constructor(private mockSvc: MockService, public dialogService: DialogService) { }
 
@@ -61,7 +64,11 @@ export class HomeComponent implements OnInit {
   }
 
   refreshTaskBoard() {
-    this.tasks = this.mockSvc.getAllTasks();
+    this.loadingTasks = true;
+    setTimeout(() => {
+      this.tasks = this.mockSvc.getAllTasks();
+      this.loadingTasks = false;
+    }, 1800);
   }
 
   getTodoTasks() {
@@ -135,4 +142,5 @@ export class HomeComponent implements OnInit {
       }
     })
   }
+
 }
