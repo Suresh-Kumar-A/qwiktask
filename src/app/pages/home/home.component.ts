@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   ref: DynamicDialogRef | undefined;
 
   title = 'New Project';
-  editTitle = false;
+  editTitle = true;
   loadingTasks = false;
 
   constructor(private mockSvc: MockService, public dialogService: DialogService) { }
@@ -66,7 +66,7 @@ export class HomeComponent implements OnInit {
   refreshTaskBoard() {
     this.loadingTasks = true;
     setTimeout(() => {
-      this.tasks = this.mockSvc.getAllTasks();
+      // this.tasks = this.mockSvc.getAllTasks();
       this.loadingTasks = false;
     }, 1800);
   }
