@@ -131,7 +131,7 @@ export class HomeComponent implements OnInit {
     const category = this.parseCategory(type);
     this.ref = this.dialogService.open(TaskItemComponent, {
       header: 'Task Item',
-      width: '40%',
+      width: '30%',
       height: '60%',
       contentStyle: { overflow: 'auto' },
     });
@@ -143,10 +143,29 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  deleteTask(task: TaskItem) {
-    const index = this.tasks.indexOf(task);
+  deleteTask(taskItem: TaskItem) {
+    const index = this.tasks.indexOf(taskItem);
     if (index != -1) {
       this.tasks.splice(index, 1);
     }
+  }
+
+  editTask(oldItem: TaskItem) {
+    this.ref = this.dialogService.open(TaskItemComponent, {
+      header: 'Task Item',
+      width: '30%',
+      height: '60%',
+      contentStyle: { overflow: 'auto' },
+      data: oldItem
+    });
+    this.ref.onClose.subscribe((updatedItem: TaskItem) => {
+      if (updatedItem) {
+        const itemRef = this.tasks.find(item => item.title == oldItem.title);
+        if (itemRef) {
+          itemRef.title = updatedItem.title;
+          itemRef.description = updatedItem.description;
+        }
+      }
+    })
   }
 }

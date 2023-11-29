@@ -1,16 +1,15 @@
 <div class="card flex justify-content-center">
     <form action="#" class="grid gap-2 p-3" [formGroup]="taskItemFormGroup">
-        <span class="p-float-label">
-            <input pInputText id="title" formControlName="title" />
+        <span class="p-float-label w-full">
+            <input pInputText id="title" formControlName="title" class="p-inputtext-sm w-full" autofocus />
             <label htmlFor="title">Title</label>
         </span>
-        <span class="p-float-label">
-            <textarea id="description" rows="5" cols="30" pInputTextarea formControlName="description"></textarea>
+        <span class="p-float-label w-full">
+            <textarea id="description" rows="5" cols="30" pInputTextarea formControlName="description"
+                class="w-full"></textarea>
             <label for="description">Description</label>
         </span>
-        <button *ngIf="isOpAdd" pButton pRipple class="p-button-raise w-full h-3rem" icon="pi pi-plus" type="button"
-        label="Add" (click)="save()"></button>
-        <button *ngIf="!isOpAdd" pButton pRipple class="p-button-raise w-full h-3rem" icon="pi pi-plus" type="button"
-        label="Update" (click)="save()"></button>
+        <button pButton pRipple class="p-button-raise w-full h-3rem" icon="pi pi-bolt" type="button"
+            label="{{buttonTitle}}" (click)="save()"></button>
     </form>
 </div>

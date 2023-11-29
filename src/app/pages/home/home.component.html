@@ -41,7 +41,7 @@
             pDroppable (drop)="drop(item.key)" [ngClass]="{'border-1 border-dashed' : getTasksCount(item.key) == '0'}">
             <div *ngFor="let task of getTasks(item.key)" draggable="true" pDraggable (onDragStart)="dragStart(task)"
                 class="surface-card p-2 border-1 border-400 border-round flex flex-column gap-1 m-1 h-fit"
-                (onDragEnd)="dragEnd()">
+                (onDragEnd)="dragEnd()" (dblclick)="editTask(task)">
                 <span class="font-bold flex justify-content-between">
                     {{task.title}}
                     <button pRipple type="button" class="menu-icon mini hover:border-red-800"
