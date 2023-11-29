@@ -37,11 +37,18 @@
             <div class="font-semibold text-2xl text-700 mr-1">{{item.value}}</div>
             <p-badge [value]="getTasksCount(item.key)" severity="danger"></p-badge>
         </div>
-        <div class="my-2 flex flex-column overflow-y-auto task-group-content" style="min-height: 80% !important;" pDroppable
-            (drop)="drop(item.key)" [ngClass]="{'border-1 border-dashed' : getTasksCount(item.key) == '0'}">
+        <div class="my-2 flex flex-column overflow-y-auto task-group-content" style="min-height: 80% !important;"
+            pDroppable (drop)="drop(item.key)" [ngClass]="{'border-1 border-dashed' : getTasksCount(item.key) == '0'}">
             <div *ngFor="let task of getTasks(item.key)" draggable="true" pDraggable (onDragStart)="dragStart(task)"
-                class="surface-card p-2 border-1 border-400 border-round grid gap-1 m-1 h-fit" (onDragEnd)="dragEnd()">
-                <span class="font-bold">{{task.title}}</span>
+                class="surface-card p-2 border-1 border-400 border-round flex flex-column gap-1 m-1 h-fit"
+                (onDragEnd)="dragEnd()">
+                <span class="font-bold flex justify-content-between">
+                    {{task.title}}
+                    <button pRipple type="button" class="menu-icon mini hover:border-red-800"
+                        (click)="deleteTask(task)">
+                        <i class="pi pi-trash text-red-600" style="font-size: 1rem"></i>
+                    </button>
+                </span>
                 <span class="text-700 font-medium text-sm">{{task.description}}</span>
             </div>
         </div>
