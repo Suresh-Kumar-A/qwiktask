@@ -97,7 +97,8 @@
               "src/styles.scss",
               "src/qwik-task-theme.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "karmaConfig": "karma.conf.js"
           }
         }
       }

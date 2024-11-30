@@ -3,7 +3,7 @@
 .angular
 package-lock.json
 # Compiled output
-# /dist
+ /dist
 /tmp
 /out-tsc
 /bazel-out
